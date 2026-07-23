@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         GITHUB_CREDENTIALS = 'github-pat'
+        PATH = "/Users/rohit.negi/.nvm/versions/node/v20.9.0/bin:${env.PATH}"
     }
 
     stages {
