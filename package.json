@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "build": "node -e \"require('./src/app.js'); console.log('Build successful')\"",
+    "build": "rm -rf dist && mkdir -p dist && cp -r src package.json package-lock.json dist/ && echo 'Build successful'",
     "lint": "eslint .",
     "test": "jest",
     "test:coverage": "jest --coverage"

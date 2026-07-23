@@ -24,5 +24,17 @@ pipeline {
                 sh 'npm test'
             }
         }
+
+        stage('Create Artifact') {
+            steps {
+                sh "zip -r tesk-api-${BUILD_NUMBER}.zip dist/"
+            }
+        }
+
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: '*.zip', fingerprint: true
+            }
+        }
     }
 }
