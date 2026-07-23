@@ -6,16 +6,9 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Install Dependencies') {
             steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/feature/ci-cd-pipeline']],
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/igentihor/tesk-api.git',
-                        credentialsId: "${GITHUB_CREDENTIALS}"
-                    ]]
-                ])
+                sh 'npm ci'
             }
         }
     }
